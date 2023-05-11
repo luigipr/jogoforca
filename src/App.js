@@ -1,26 +1,47 @@
-//import logo from './logo.svg';
-import './App.css';
-import './Letras.js'
+import Jogo from './Jogo'
+import palavras from './palavras';
+import Buttons from './Letras';
+import { useState } from 'react';
+import forca0 from './assets/img/forca0.png'
+import forca1 from './assets/img/forca1.png'
+import forca2 from './assets/img/forca2.png'
+import forca3 from './assets/img/forca3.png'
+import forca4 from './assets/img/forca4.png'
+import forca5 from './assets/img/forca5.png'
+import forca6 from './assets/img/forca6.png'
 
-function App() {
+
+
+export default function App() {
+  const words = palavras
+  const [word, setWord] = useState('');
+  const [clicados, setClicados] = useState([]);
+
+
+
+
+  function botoesClicados(i){
+    const novoArray = [...clicados];
+    novoArray.push(i);
+    setClicados(novoArray);
+    //setFinalizadas([...finalizadas, i]);
+  }
+
+
+
   return (
     <div className="App">
       <header className="App-header">
-        {/* // <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+
+      <Jogo word={word} setWord={setWord} words={words}/>
+
+    <div>
+      <Buttons className={ clicados.includes(clicados) ? "clickado" : "nao-clicado"} />
     </div>
+    
+    </div>
+
   );
 }
 
-export default App;
