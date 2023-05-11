@@ -16,8 +16,9 @@ export default function App() {
   const words = palavras
   const [word, setWord] = useState('');
   const [clicados, setClicados] = useState([]);
+  const [buttonEnabled, setButtonEnabled] = useState(false);
 
-
+console.log(buttonEnabled)
 
 
   function botoesClicados(i){
@@ -34,10 +35,10 @@ export default function App() {
       <header className="App-header">
       </header>
 
-      <Jogo word={word} setWord={setWord} words={words}/>
+      <Jogo word={word} setWord={setWord} words={words} setButtonEnabled={setButtonEnabled}/>
 
     <div>
-      <Buttons className={ clicados.includes(clicados) ? "clickado" : "nao-clicado"} />
+      <Buttons  buttonEnabled={buttonEnabled}/>
     </div>
     
     </div>

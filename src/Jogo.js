@@ -12,41 +12,36 @@ import forca6 from './assets/img/forca6.png'
 
 
 export default function Jogo(props) {
-    console.log(props)
-    //const [word, words, setWord] = ...props
+  console.log(props)
+  //const [word, words, setWord] = ...props
 
-     let word = props.word
-     let setWord = props.setWord
-     let words = props.words
-     let word2 = '';
+  let word = props.word
+  let setWord = props.setWord
+  let words = props.words
+  let word2 = '';
 
-    function comecarJogo () {
+  function comecarJogo() {
 
     setWord(words[Math.floor(Math.random() * words.length)]);
 
-  
-    for (let i = 0; i < word.length; i++) {
-         word2 += "_ ";        
-    }
-    console.log(word2)
-
-
-}
-
+    props.setButtonEnabled(true)
+  }
+    //{() => setButtonEnabled(true)}
 
     return (
-        <div className='jogo'>
-        
+      <div className='jogo'>
+
         <div className='proprietiesimg'>
-        <img src={forca0} alt="forca"></img>
+          <img src={forca0} alt="forca"></img>
         </div>
-        
+
         <div className='proprieties'>
-          <div   className='restart'> <button onClick={comecarJogo}><p>Escolher palavra</p></button></div>
+          <div className='restart'> <button data-test='choose-word' onClick={comecarJogo}><p>Escolher palavra</p></button></div>
           <div className='word'> <p>{word}</p></div>
         </div>
 
       </div>
     )
+  
 }
 
