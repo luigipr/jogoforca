@@ -12,7 +12,7 @@ import forca6 from './assets/img/forca6.png'
 const alfabeto = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
 export default function Letters({ selectedWord, setSelectedWord, clickedLetters, setClickedLetters, underLine, setUnderLine,
-     wrongPlays, setWrongPlays, setHangImage, startGame, setStartGame, setWin, getRandomWord, hangImage, buttonEnabled,setButtonEnabled, nome }) {
+     wrongPlays, setWrongPlays, setHangImage, startGame, setStartGame, setWin, getRandomWord, hangImage, buttonEnabled,setButtonEnabled, name }) {
 
 
     function changeImage() {
@@ -77,7 +77,7 @@ export default function Letters({ selectedWord, setSelectedWord, clickedLetters,
     return (
         <div className="buttons" >
     {alfabeto.map((letter, index ) => { return (        
-        <button data-test="letter" key={letter} i={index} nome={letter} setButtonEnabled={setButtonEnabled} buttonEnabled={buttonEnabled}
+        <button data-test="letter" key={letter} i={index} name={letter} setButtonEnabled={setButtonEnabled} buttonEnabled={buttonEnabled}
         disabled={startGame ? (clickedLetters.includes(letter) ? true : false) : true} 
         onClick={() => click(letter)} className={`letter ${startGame ? "active" : ""} ${clickedLetters.includes(letter) ? "desactive" : ""}`}>
         {letter.toUpperCase()}</button> )

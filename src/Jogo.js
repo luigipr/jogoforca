@@ -79,7 +79,7 @@ export default function Jogo({selectedWord, answer, setSelectedWord, setClickedL
         </div>
 
         <div className='proprieties'>
-          <div className='restart chooseWord'> <button data-test='choose-word' onClick={comecarJogo}><p>Escolher palavra</p></button></div>
+          <div className='restart chooseWord' data-test='choose-word'> <button className="chooseWord" data-test='choose-word' onClick={comecarJogo}><p>Escolher palavra</p></button></div>
           <h1 data-test="word" data-answer={answer} 
           className={` word ${pickedWord} ${hangImage === forca6 ? (win ? "green" : "red") : ""} ${win ? "green" : ""}`}>{underLine}</h1>
           

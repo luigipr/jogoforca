@@ -15,13 +15,14 @@
 .jogo img {
     width: 400px;
     height: 466px;
-    border: 1px solid black;
 }
 .proprietisimg {
     width: 50vw;
 }
 .proprieties {
     width: 50vw;
+    
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -30,6 +31,10 @@
 
 button:hover{
     cursor: pointer;
+}
+
+h1 {
+    text-align: inherit;
 }
 
 .buttons {
@@ -42,14 +47,11 @@ button:hover{
 }
 .buttons button {
     width: 40px;
+    margin: 10px;
     height: 40px;
     background: #9FAAB5;
     border: 1px solid #7AA7C7;
     border-radius: 3px;
-}
-
-.button {
-    margin: 10px;
 }
 
 .hangman img {
@@ -72,12 +74,18 @@ button:hover{
     display: flex;
     align-items: center;
     text-align: center;
-    width: 323px;
+    width: 400px;
     height: 68px;
 }
  p {
     width: inherit;
  }
+ .green{
+    color: green;
+ }
+.red{
+    color: red;
+}
 
 .restart button {
     width: 200px;

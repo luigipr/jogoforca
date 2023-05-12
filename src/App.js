@@ -17,7 +17,6 @@ export default function App() {
   const [word, setWord] = useState('');
   const [clicados, setClicados] = useState([]);
   const [buttonEnabled, setButtonEnabled] = useState(false);
-
   const [selectedWord, setSelectedWord] = useState("")
   const [underLine, setUnderLine] = useState([])
   const [keyboard, setKeyboard] = useState('letter')
@@ -27,7 +26,6 @@ export default function App() {
   const [hangImage, setHangImage] = useState(forca0)
   const [wrongPlays, setWrongPlays] = useState(0)
   const [win, setWin] = useState(false)
-  const [guess, setGuess] = useState("")
   const [answer, setAnswer] = useState("")
 
   function getRandomWord() {
@@ -37,12 +35,12 @@ export default function App() {
 console.log(buttonEnabled)
 
 
-  function botoesClicados(i){
-    const novoArray = [...clicados];
-    novoArray.push(i);
-    setClicados(novoArray);
-    //setFinalizadas([...finalizadas, i]);
-  }
+  // function botoesClicados(i){
+  //   const novoArray = [...clicados];
+  //   novoArray.push(i);
+  //   setClicados(novoArray);
+  //   //setFinalizadas([...finalizadas, i]);
+  // }
 
 
 
