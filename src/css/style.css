@@ -28,7 +28,12 @@
     align-items: center;
 }
 
+button:hover{
+    cursor: pointer;
+}
+
 .buttons {
+    
     align-items: center;
     justify-content: center;
 

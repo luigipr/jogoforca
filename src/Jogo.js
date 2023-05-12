@@ -11,35 +11,79 @@ import forca6 from './assets/img/forca6.png'
 
 
 
-export default function Jogo(props) {
-  console.log(props)
+export default function Jogo({selectedWord, answer, setSelectedWord, setClickedLetters, hangImage, setHangImage,
+  pickedWord, setPickedWord, setStartGame, underLine, setUnderLine, win, setWin, setWrongPlays, setKeyboard,
+   setAnswer, getRandomWord, setButtonEnabled}) {
+
   //const [word, words, setWord] = ...props
 
-  let word = props.word
-  let setWord = props.setWord
-  let words = props.words
-  let word2 = '';
+  // let word = props.word
+  // let setWord = props.setWord
+  // let words = props.words
+  // let word2 = word.split();
 
-  function comecarJogo() {
 
-    setWord(words[Math.floor(Math.random() * words.length)]);
+  function selectWord() {
 
-    props.setButtonEnabled(true)
+    const choosenWord = Array.from(getRandomWord())
+    setSelectedWord(choosenWord.join(""))
+    const under = choosenWord.map((letra) => letra.replace(letra, " _ "))
+    setAnswer(choosenWord.join(""))
+    setUnderLine(under)
+    setPickedWord('word')
+    setKeyboard('letter active')
+    setStartGame(true)
+    setWin(false)
+    setHangImage(forca0)
+    setWrongPlays(0)
+    setClickedLetters([])
+}
+
+  function comecarJogo(props) {
+    const choosenWord = Array.from(getRandomWord())
+    setSelectedWord(choosenWord.join(""))
+    const under = choosenWord.map((letra) => letra.replace(letra, " _ "))
+    setAnswer(choosenWord.join(""))
+    setUnderLine(under)
+    setPickedWord('word')
+    setKeyboard('letter active')
+    setStartGame(true)
+    setWin(false)
+    setHangImage(forca0)
+    setWrongPlays(0)
+    setClickedLetters([])
+
+    // const choosenWord = Array.from(getRandomWord())
+    //   setSelectedWord(choosenWord.join(""))
+    //   const under = choosenWord.map((letra) => letra.replace(letra, " _ "))
+    //     setAnswer(choosenWord.join(""))
+    //     setUnderLine(under)
+
+
+
+    // setWord(words[Math.floor(Math.random() * words.length)]);
+    // setSelectedWord(choosenWord.join(""))
+    // const under = choosenWord.map((letra) => letra.replace(letra, " _ "))
+
+      setButtonEnabled(true)
   }
     //{() => setButtonEnabled(true)}
+        //{nome} em classname word
 
     return (
       <div className='jogo'>
 
         <div className='proprietiesimg'>
-          <img src={forca0} alt="forca"></img>
+          <img data-test="game-image" src={hangImage} alt="forca"></img>
+
         </div>
 
         <div className='proprieties'>
-          <div className='restart'> <button data-test='choose-word' onClick={comecarJogo}><p>Escolher palavra</p></button></div>
-          <div className='word'> <p>{word}</p></div>
+          <div className='restart chooseWord'> <button data-test='choose-word' onClick={comecarJogo}><p>Escolher palavra</p></button></div>
+          <h1 data-test="word" data-answer={answer} 
+          className={` word ${pickedWord} ${hangImage === forca6 ? (win ? "green" : "red") : ""} ${win ? "green" : ""}`}>{underLine}</h1>
+          
         </div>
-
       </div>
     )
   

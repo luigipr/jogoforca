@@ -1,6 +1,6 @@
 import Jogo from './Jogo'
 import palavras from './palavras';
-import Buttons from './Letras';
+import Letters from './Letras';
 import { useState } from 'react';
 import forca0 from './assets/img/forca0.png'
 import forca1 from './assets/img/forca1.png'
@@ -17,6 +17,22 @@ export default function App() {
   const [word, setWord] = useState('');
   const [clicados, setClicados] = useState([]);
   const [buttonEnabled, setButtonEnabled] = useState(false);
+
+  const [selectedWord, setSelectedWord] = useState("")
+  const [underLine, setUnderLine] = useState([])
+  const [keyboard, setKeyboard] = useState('letter')
+  const [pickedWord, setPickedWord] = useState('word hidden')
+  const [clickedLetters, setClickedLetters] = useState([])
+  const [startGame, setStartGame] = useState(false)
+  const [hangImage, setHangImage] = useState(forca0)
+  const [wrongPlays, setWrongPlays] = useState(0)
+  const [win, setWin] = useState(false)
+  const [guess, setGuess] = useState("")
+  const [answer, setAnswer] = useState("")
+
+  function getRandomWord() {
+    return palavras[Math.floor(Math.random() * (palavras).length)]
+  }
 
 console.log(buttonEnabled)
 
@@ -35,10 +51,44 @@ console.log(buttonEnabled)
       <header className="App-header">
       </header>
 
-      <Jogo word={word} setWord={setWord} words={words} setButtonEnabled={setButtonEnabled}/>
+      <Jogo 
+      selectedWord={selectedWord}
+      setSelectedWord={setSelectedWord}
+      setKeyboard={setKeyboard}
+      pickedWord={pickedWord}
+      setPickedWord={setPickedWord}
+      setClickedLetters={setClickedLetters}
+      underLine={underLine}
+      setUnderLine={setUnderLine}
+      setStartGame={setStartGame}
+      hangImage={hangImage}
+      setHangImage={setHangImage}
+      setWrongPlays={setWrongPlays}
+      win={win}
+      setWin={setWin}
+      answer={answer}
+      setAnswer={setAnswer}
+      getRandomWord={getRandomWord}
+      word={word} setWord={setWord} words={words} setButtonEnabled={setButtonEnabled}/>
 
     <div>
-      <Buttons  buttonEnabled={buttonEnabled}/>
+      <Letters  
+      buttonEnabled={buttonEnabled}
+      keyboard={keyboard}
+      setKeyboard={setKeyboard}
+      selectedWord={selectedWord}
+      setSelectedWord={setSelectedWord}
+      getRandomWord={getRandomWord}
+      clickedLetters={clickedLetters}
+      setClickedLetters={setClickedLetters}
+      underLine={underLine}
+      setUnderLine={setUnderLine}
+      startGame={startGame}
+      setStartGame={setStartGame}
+      setHangImage={setHangImage}
+      wrongPlays={wrongPlays}
+      setWrongPlays={setWrongPlays}
+      setWin={setWin}/>
     </div>
     
     </div>
