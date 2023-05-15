@@ -1,5 +1,4 @@
 
-import { useState } from "react"
 import "./css/style.css"
 import forca0 from './assets/img/forca0.png'
 import forca1 from './assets/img/forca1.png'
@@ -66,7 +65,7 @@ export default function Letters({ selectedWord, setSelectedWord, clickedLetters,
                 setSelectedWord(getRandomWord())
             }
         }
-        if (choosenWord.every(item => disabeLetters.includes(item))) {
+        if (choosenWord.every(word => disabeLetters.includes(word))) {
             setWin(true)
             setStartGame(false)
             setUnderLine(selectedWord)
@@ -79,7 +78,7 @@ export default function Letters({ selectedWord, setSelectedWord, clickedLetters,
     {alfabeto.map((letter, index ) => { return (        
         <button data-test="letter" key={letter} i={index} name={letter} setButtonEnabled={setButtonEnabled} buttonEnabled={buttonEnabled}
         disabled={startGame ? (clickedLetters.includes(letter) ? true : false) : true} 
-        onClick={() => click(letter)} className={`letter ${startGame ? "active" : ""} ${clickedLetters.includes(letter) ? "desactive" : ""}`}>
+        onClick={() => click(letter)} className={`letter ${startGame ? "active" : ""} ${clickedLetters.includes(letter) ? "unnactive" : ""}`}>
         {letter.toUpperCase()}</button> )
 
         // return <Button  key={letter} i={index} nome={letter} setButtonEnabled={setButtonEnabled} buttonEnabled={buttonEnabled}/>

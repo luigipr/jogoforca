@@ -1,12 +1,7 @@
-import palavras from "./palavras"
-import App from "./App"
-import { useState } from "react";
+// import palavras from "./palavras"
+// import App from "./App"
+// import { useState } from "react";
 import forca0 from './assets/img/forca0.png'
-import forca1 from './assets/img/forca1.png'
-import forca2 from './assets/img/forca2.png'
-import forca3 from './assets/img/forca3.png'
-import forca4 from './assets/img/forca4.png'
-import forca5 from './assets/img/forca5.png'
 import forca6 from './assets/img/forca6.png'
 
 
@@ -23,21 +18,21 @@ export default function Jogo({selectedWord, answer, setSelectedWord, setClickedL
   // let word2 = word.split();
 
 
-  function selectWord() {
+//   function selectWord() {
 
-    const choosenWord = Array.from(getRandomWord())
-    setSelectedWord(choosenWord.join(""))
-    const under = choosenWord.map((letra) => letra.replace(letra, " _ "))
-    setAnswer(choosenWord.join(""))
-    setUnderLine(under)
-    setPickedWord('word')
-    setKeyboard('letter active')
-    setStartGame(true)
-    setWin(false)
-    setHangImage(forca0)
-    setWrongPlays(0)
-    setClickedLetters([])
-}
+//     const choosenWord = Array.from(getRandomWord())
+//     setSelectedWord(choosenWord.join(""))
+//     const under = choosenWord.map((letra) => letra.replace(letra, " _ "))
+//     setAnswer(choosenWord.join(""))
+//     setUnderLine(under)
+//     setPickedWord('word')
+//     setKeyboard('letter active')
+//     setStartGame(true)
+//     setWin(false)
+//     setHangImage(forca0)
+//     setWrongPlays(0)
+//     setClickedLetters([])
+// }
 
   function comecarJogo(props) {
     const choosenWord = Array.from(getRandomWord())
